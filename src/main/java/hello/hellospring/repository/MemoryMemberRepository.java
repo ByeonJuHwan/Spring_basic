@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
-public class MemoryMemberRepository implements MemberRepository{
+
+public class  MemoryMemberRepository implements MemberRepository{
 
 
     private static Map<Long, Member> store = new HashMap<>();
@@ -25,6 +25,7 @@ public class MemoryMemberRepository implements MemberRepository{
     public Optional<Member> findById(Long id) {
         return Optional.ofNullable(store.get(id));
     }
+    // NullPointerException을 해결하기위한 방책으로 Java8부터 Optional이 등장했다.
 
     @Override
     public Optional<Member> findByName(String name) {
